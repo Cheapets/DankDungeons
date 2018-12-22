@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!--5ETOOLS_VERSION-->
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Stat Block Converter - 5etools</title>
+
+	<link rel="stylesheet" href="css/bootstrap.css?v=1.67.11">
+	<link rel="stylesheet" href="css/jquery-ui.css?v=1.67.11">
+	<link rel="stylesheet" href="css/jquery-ui-slider-pips.css?v=1.67.11">
+	<link rel="stylesheet" href="css/style.css?v=1.67.11">
+	<link rel="icon" href="favicon.png">
+
+	<script type="text/javascript" src="js/header.js?v=1.67.11"></script>
+
+	<style>
+		.inputArea,
+		.outputArea {
+			width: 100%;
+			height: 100%;
+		}
+
+		.select-inline {
+			display: inline-block;
+			width: initial;
+		}
+
+		#lastWarnings {
+			color: #df00ff;
+		}
+
+		#lastError {
+			color: red;
+		}
+
+		#lastWarnings,
+		#lastError {
+			margin-top: 5px;
+			margin-bottom: 10px;
+			display: none;
+			flex-shrink: 0;
+			padding: 9px;
+			font-size: 13px;
+			line-height: 1.4;
+			background-color: #f5f5f5;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		.conv__head {
+			margin-top: 0;
+			margin-bottom: 2px;
+		}
+
+		.conv__col {
+			margin-top: 0;
+		}
+
+		.conv__out_control__wrp {
+			padding: 0 2rem;
+			flex-shrink: 0;
+		}
+	</style>
+</head>
+
+<body>
+<div class="viewport-wrapper">
+	<div class="sidemenu__toggle">
+		<div class="sidemenu__hotzone"></div>
+		<div class="sidemenu__burger"></div>
+		<div class="sidemenu__burger"></div>
+		<div class="sidemenu__burger"></div>
+		<div class="sidemenu"></div>
+	</div>
+
+	<header class="hidden-xs hidden-sm">
+		<div class="container">
+
+			<h1>Text Converter</h1>
+			<p>Input text on left, hit parse, copy JSON from right.</p>
+		</div>
+	</header>
+	<nav class="container" id="navigation">
+		<ul class="nav nav-pills" id="navbar">
+		</ul>
+	</nav>
+	<main class="bodyContent view-col-wrapper">
+
+		<div class="view-col conv__col">
+			<h3 class="conv__head">Input</h3>
+			<pre id="converter_input" class="inputArea ace_editor"></pre>
+			<div>
+				<div class="text-align-right" style="padding: 0 2rem;">
+					<button id="parsestatblock" class="btn btn-sm btn-default">Parse</button>
+					<button id="parsestatblockadd" class="btn btn-sm btn-default">Parse and Add</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="view-col conv__col">
+			<h3 class="conv__head">Output</h3>
+
+			<pre id="converter_output" class="outputArea ace_editor"></pre>
+
+			<div class="split conv__out_control__wrp">
+				<button id="editable" class="btn btn-sm btn-default">Enable Editing</button>
+				<button id="download" class="btn btn-sm btn-default">Download JSON</button>
+			</div>
+
+			<div id="lastWarnings" class="code"></div>
+			<div id="lastError" class="code"></div>
+		</div>
+	</main>
+</div>
+
+<!--5ETOOLS_SCRIPT_ANCHOR-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/combine/npm/jquery@3.2/dist/jquery.min.js,npm/bootstrap@3.3/dist/js/bootstrap.min.js,npm/list.js@1.5/dist/list.min.js,gh/weixsong/elasticlunr.js@0.9/elasticlunr.min.js"></script> <script>window.jQuery || document.write(`<script src="/lib/jquery.js"><\/script>`); window.List || document.write(`<script src="/lib/list.js"><\/script>`);</script>
+<!--5ETOOLS_SCRIPT_ANCHOR__ACE-JS-->
+<script type="text/javascript" src="js/utils.js?v=1.67.11"></script>
+<script type="text/javascript" src="lib/localforage.js"></script>
+<script type="text/javascript" src="js/omnidexer.js?v=1.67.11"></script>
+<script type="text/javascript" src="js/omnisearch.js?v=1.67.11"></script>
+<script type="text/javascript" src="js/entryrender.js?v=1.67.11"></script>
+<script type="text/javascript" src="js/scalecreature.js?v=1.67.11"></script>
+<script type="text/javascript" src="js/converterutils.js?v=1.67.11"></script>
+<script type="text/javascript" src="js/converter.js?v=1.67.11"></script>
+<script type="text/javascript" src="lib/jquery-ui.js"></script>
+<script type="text/javascript" src="lib/jquery-ui-slider-pip.js"></script>
+<script type="text/javascript" src="lib/ace.js"></script>
+</body>
+</html>
